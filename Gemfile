@@ -50,3 +50,7 @@ group :production do
   
 end
 
+gem 'devise'
+gem 'milia'
+gem 'recaptcha', require: 'recaptcha/rails'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
 
-
+  resources :tenant do
+    resources :projects
+  end
   resources :members
   get 'home/index'
 
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
     
   # *MUST* come *BEFORE* devise's definitions (below)
   as :user do   
-    match '/user/confirmation' => 'milia/confirmations#update', :via => :put, :as => :update_user_confirmation
+    match '/user/confirmation' => 'confirmations#update', :via => :put, :as => :update_user_confirmation
   end
 
   devise_for :users, :controllers => { 
